@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="tree/dtree.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="iconfont/iconfont.css">
+    <script type="text/javascript" src="tree/dtree.js">
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
+
+        function drop(ev) {
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+            ev.preventDefault();
+        }
+    </script>
+    <title>Document</title>
+    <style>
+        blockquote {
+            padding: 0 20px;
+            border-left-width: 4px;
+            border-left-color: #ddd;
+            border-left-style: solid;
+        }
+
+        .divblock {
+            border: 5px;
+            border-color: #fff;
+            width: 100%;
+            height: 50px;
+        }
+
+        .div1 {
+            width: 350px;
+            height: 70px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+</head>
+<body>
+<h1 title="title">html5 study</h1>
+<h2>标签</h2>
+<p>p标签</p>
+<a href="http://www.runoob.com" target="blank" title="a" accesskey="a">菜鸟教程</a><br/><br/>
+<img src="国税APP主页_spec.png" alt="" width="20%" height="20%" title="img" accesskey="e"/>
+
+<h2>属性</h2>
+
+<!--accesskey-->
+<h3>1、accesskey:</h3>
+<blockquote>
+    <a href="http://savion.coding.me" title="快捷访问方式:alt+a/shift+a" target="blank" accesskey="a">定义访问标签的快捷键</a>
+    <p><strong>注意:</strong>不同的浏览器的快捷访问方式也不同</p>
+    <ul>
+        <li>IE,Chrome,Opera 15+,Safari:[ALT]+ <em>accesskey</em></li>
+        <li>Opera down 15:[shift][ESC]+ <em>accesskey</em></li>
+        <li>FireFox:[ALT][SHIFT]+ <em>accesskey</em></li>
+    </ul>
+</blockquote>
+
+<!--contextmenu-->
+<h3>2、contextmenu:</h3>
+<blockquote>
+    <p contextmenu="mymenu" title="右击此段落可显示上下文菜单">规定元素的上下文菜单，当设置此属性时，右键标签可显示上下文菜单</p>
+    <menu id="mymenu" type="context">
+        <menuitem lable="menuitem1"></menuitem>
+        <menuitem lable="menuitem2"></menuitem>
+    </menu>
+    <p><strong>注意:</strong></p>
+    <ul>
+        <li>目前大部分浏览器不支持.</li>
+    </ul>
+</blockquote>
+
+<!--contenteditable-->
+<h3>3、contenteditable:</h3>
+<blockquote>
+    <p contenteditable="true">元素是否可编辑,如果元素没有设置此属性则从父元素处继承下来</p>
+</blockquote>
+
+<!---->
+<h3>4、dir:</h3>
+<blockquote>
+    <p dir="rtl">文本方向!</p>
+</blockquote>
+
+<!---->
+<h3>5、draggable</h3>
+<blockquote>
+    <p id="drag1" draggable="true" ondragstart="drag(event)">将这个段落拖动到框内</p>
+    <div class="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    </div>
+    <tr>
+        <td style='background-img:"https://www.baidu.com/img/bd_logo1.png"'></td>
+    </tr>
+</blockquote>
+
+<h3>6、dtree</h3>
+<blockquote>
+    <p>菜单</p>
+    <div class="dtree">
+        <p><a href="javascript: dt.openAll();">open all</a> | <a href="javascript: dt.closeAll();">close all</a></p>
+        <br>
+        <script type="text/javascript">
+            <!--
+            // dt = new dTree('dt');
+            dt = new dTree("dt");
+            dt.add(0,-1,'My example tree');
+            dt.add(1,0,'Node 1','example01.html',"","","iconfont icon-folder","iconfont icon-help",false);
+            dt.add(2,0,'Node 2','example01.html');
+            dt.add(3,1,'Node 1.1','example01.html');
+            dt.add(4,0,'Node 3','example01.html');
+            dt.add(5,3,'Node 1.1.1','example01.html');
+            dt.add(6,5,'Node 1.1.1.1','example01.html');
+            dt.add(7,0,'Node 4','example01.html');
+            dt.add(8,1,'Node 1.2','example01.html');
+            dt.add(9,0,'My Pictures','example01.html','Pictures I\'ve taken over the years','','','iconfont icon-help');
+            dt.add(10,9,'The trip to Iceland','example01.html','Pictures of Gullfoss and Geysir');
+            dt.add(11,9,'Mom\'s birthday','example01.html');
+            dt.add(12,0,'Recycle Bin','example01.html','','','iconfont icon-pic');
+            document.write(dt);
+            //-->
+        </script>
+
+    </div>
+</blockquote>
+</body>
+</html>
